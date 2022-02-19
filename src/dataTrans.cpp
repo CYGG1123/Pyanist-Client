@@ -1,7 +1,3 @@
-//
-// Created by 郭淳宇 on 2022/2/8.
-//
-
 #include "dataTrans.h"
 
 void *sendMsg(void *socket) {
