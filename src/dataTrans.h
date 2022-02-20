@@ -14,7 +14,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <iostream>
-
+#include "fileSize.h"
 using namespace std;
 
 void *sendMsg(void *socket);
