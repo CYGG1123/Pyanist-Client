@@ -9,18 +9,20 @@
 #include <iostream>
 
 #include "dataTrans.h"
-
+#include "playMusic.h"
+#include "executeCMD.h"
 using namespace std;
 
-
-int main() {
+int main()
+{
     pthread_t recv;
     pthread_t send;
-    char ipaddr[14] = "127.0.0.1";
+    char ipaddr[14] = "192.168.5.193";
     int port = 7777;
     int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP); // AF_INET指明使用ipv4，sock_stream指定使用流套接字，ipproto_tcp指定使用tcp协议
 
-    if (sock < 0) {
+    if (sock < 0)
+    {
         cout << "socket() failed" << endl;
     }
 
@@ -29,18 +31,23 @@ int main() {
     servAddr.sin_family = AF_INET;
 
     int rtn = inet_pton(AF_INET, ipaddr, &servAddr.sin_addr.s_addr); //转换ip地址格式，从本机字节序转换成为网络字节序
-    if (rtn == 0) {
+    if (rtn == 0)
+    {
         cout << "address wrong ,inet_pton() failed" << endl;
-    } else if (rtn < 0) {
+    }
+    else if (rtn < 0)
+    {
         cout << "inet_pton() failed" << endl;
     }
 
     servAddr.sin_port = htons(port);
 
-    if (connect(sock, (struct sockaddr *) &servAddr, sizeof(servAddr)) < 0) //连接到服务器
+    if (connect(sock, (struct sockaddr *)&servAddr, sizeof(servAddr)) < 0) //连接到服务器
     {
         cout << "connect failed" << endl;
-    } else {
+    }
+    else
+    {
         cout << "connect success" << endl;
     }
 

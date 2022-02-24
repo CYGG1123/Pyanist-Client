@@ -9,4 +9,5 @@ set(CMAKE_CXX_FLAGS "-pthread")
 add_executable( Pyanist_Client src/main.cpp
                 src/dataTrans.cpp src/dataTrans.h
                 src/playMusic.cpp src/playMusic.h
-                src/executeCMD.cpp src/executeCMD.h)
+                src/executeCMD.cpp src/executeCMD.h
+                src/fileSize.cpp src/fileSize.h)
